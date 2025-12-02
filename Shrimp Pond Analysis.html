@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Interaktif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background-image"></div>
+
+    <!-- Toggle Button Panah -->
+    <div class="navbar-toggle" id="navbarToggle">
+        <span class="arrow-icon">▼</span>
+    </div>
+
+    <!-- Navbar Blur Transparan -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <h2>Kelompok 16</h2>
+            </div>
+            <ul class="navbar-menu">
+                <!-- Menu Home dengan Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Home</a>
+                    <div class="dropdown-content">
+                        <a href="#beranda" data-page="beranda">Beranda</a>
+                        <a href="#latar-belakang" data-page="latar-belakang">Latar Belakang</a>
+                        <a href="#data" data-page="data">Data</a>
+                        <a href="#Kesimpulan" data-page="Kesimpulan">Kesimpulan</a>
+                    </div>
+                </li>
+                  <li><a href="kontak.html" class="nav-link">Kontak</a>
+                <li><a href="dafpus.html" class="nav-link">Daftar Pustaka</a></li>
+              
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Halaman Beranda -->
+        <section id="beranda" class="page active">
+            <div class="content-card">
+                 <h1 class="title-beranda">Selamat Datang di Beranda</h1>
+                <p class="intro-text">Ini adalah halaman utama website kami yang akan menjawab pertanyaan anda.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <div class="icon">🚀</div>
+                        <h3>Parameter apa yang dapat memprediksi mortalitas udang?</h3>
+                       
+                    </div>
+                </div>
+                
+
+                <div class="cta-section">
+                      <a href="Shrimp Pond Analysis.html#latar-belakang">
+                        <button class="cta-button" id="btnMulai">Temukan jawabannya disini!</button>
+                        </a>
+        
+                </div>
+            </div>
+        </section>
+        
+
+
+
+
+        <!-- Halaman Latar Belakang -->
+       <section id="latar-belakang" class="page">
+  <div class="background-card">
+    <div class="background-text">
+      <h1 class="title-latar">Latar Belakang</h1>
+      <p class="background-desc">
+       Indonesia merupakan salah satu negara produsen utama udang vaname dunia dengan ekspor mencapai ratusan ribu ton per tahun dan berkontribusi besar pada ekonomi sektor perikanan nasional. Budidaya udang vaname sebagian besar dilakukan secara intensif di tambak rakyat dan perusahaan dengan rata-rata luas tambak berkisar antara 1,5 hingga 2,3 hektar per unit usaha (Repository UPN Jatim 2018; Jurnal Pertanian UM Par 2016; Direktorat Jenderal Perikanan Budidaya KKP 2021).
+      </p>
+      <p class="background-desc">
+       Padat tebar benur awal yang umum digunakan di tambak intensif adalah antara 100 sampai 300 ekor per meter persegi agar mendapat pertumbuhan optimal tanpa penurunan kualitas air dan tingkat survival yang tinggi (Nababan 2023; Cahyanurani & Hariri 2021; JALA Tech 2025).Salah satu tantangan paling serius dalam budidaya ini adalah tingkat mortalitas udang yang cukup tinggi, yang berhubungan erat dengan kualitas air terutama parameter seperti DO, pH, dan NH₃. Oleh karena itu, pengelolaan kualitas air menjadi aspek krusial yang harus dimonitor secara rutin agar keberhasilan budidaya tetap terjaga.
+      </p>
+    </div>
+
+    <div class="background-image-slot">
+    
+      <img src="images/pond-header.jpg" alt="Ilustrasi Latar Belakang" class="background-img">
+    
+    </div>
+  </div>
+</section>
+
+
+        <!-- Halaman Data -->
+        <section id="data" class="page">
+            <div class="content-card">
+                <h1 class="title-data">Data & Statistik</h1>
+                 <div class="powerbi-embed">
+      <iframe
+        width="100%"
+        height="480"
+        src="  https://app.powerbi.com/reportEmbed?reportId=bad7f908-7211-4e8d-8ed6-9945010ed940&autoAuth=true&ctid=fedd5298-8e66-45f1-b321-fd38ad0ff722"
+        frameborder="0"
+        allowfullscreen="true"
+        title="Shrimp Pond Data Analysis">
+      </iframe>
+    </div>
+  </div>
+
+     <div class="feature-explain-box">
+      <div class="icon">🔗</div>
+      <h3>Sumber Data</h3>
+      <p>
+        Sumber meliputi log sensor, laporan manual budidaya, serta data ekspor dari Excel secara berkala ke Power BI.
+      </p>
+    </div>
+</section>
+
+    
+                <!-- Halaman Kesimpulan -->
+       <section id="Kesimpulan" class="page">
+  <div class="background-card">
+    <div class="background-text">
+      <h1 class="title-latar">Kesimpulan</h1>
+      <p class="background-desc">
+       Indonesia merupakan salah satu negara produsen utama udang vaname dunia dengan ekspor mencapai ratusan ribu ton per tahun dan berkontribusi besar pada ekonomi sektor perikanan nasional. Budidaya udang vaname sebagian besar dilakukan secara intensif di tambak rakyat dan perusahaan dengan rata-rata luas tambak berkisar antara 1,5 hingga 2,3 hektar per unit usaha (Repository UPN Jatim 2018; Jurnal Pertanian UM Par 2016; Direktorat Jenderal Perikanan Budidaya KKP 2021).
+      </p>
+    </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

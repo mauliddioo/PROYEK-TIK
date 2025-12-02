@@ -1,0 +1,125 @@
+body {
+    background: #ffffff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#btn-back {
+      padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+
+}
+#btn-back:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 14px rgba(33,44,66,0.10);
+    padding: 28px;
+}
+/* kotak utama */
+.feature-box {
+    max-width: 700px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(18, 24, 29, 0.08);
+    padding: 32px;
+}
+
+/* judul */
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+/* input search */
+#search-biblio {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+/* list + nomor otomatis */
+.bibliography {
+    counter-reset: my-biblio;
+    list-style: none;
+    padding-left: 0;
+    color: #ffffff;
+    margin: 0;
+}
+
+.bibliography li {
+    position: relative;
+    font-size: 1.06em;
+    line-height: 1.8;
+    margin-bottom: 18px;
+
+    /* ruang untuk nomor */
+    padding-left: 34px;
+
+    /* hanging indent: baris kedua dst menjorok */
+    text-indent: -10px;
+
+    /* transisi untuk efek fade saat filter */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease,
+                margin 0.3s ease, padding 0.3s ease, height 0.3s ease;
+}
+
+/* nomor daftar pustaka */
+.bibliography li::before {
+    counter-increment: my-biblio;
+    content: counter(my-biblio) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* state tersembunyi saat tidak cocok search */
+.bibliography li.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    height: 0;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+/* animasi fade in kontainer saat page load */
+.fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

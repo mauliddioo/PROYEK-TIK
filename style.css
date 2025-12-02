@@ -1,0 +1,514 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Background Image */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/udang-dashboard.jpg'); /* Ganti dengan path gambar Anda */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+/* Tambahkan overlay untuk membuat teks lebih terbaca */
+.background-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Toggle Button Panah */
+.navbar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%) scale(1.1);
+}
+
+.arrow-icon {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggle.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Navbar Blur Transparan */
+.navbar {
+    position: fixed;
+    top: -100px; /* Tersembunyi di atas */
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transition: top 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar.show {
+    top: 80px; /* Muncul di bawah tombol toggle */
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand h2 {
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navbar-menu li {
+    position: relative;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: block;
+    font-weight: 500;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background: rgba(52, 152, 219, 0.1);
+    padding-left: 1.5rem;
+}
+
+/* Main Content */
+.main-content {
+    padding: 120px 20px 60px;
+    min-height: 100vh;
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.6s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Content Card */
+.content-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title-beranda{
+    font-size: 2.5rem;
+    color: #5a4aff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: titlePulse 1s ease;
+}
+.title-latar{
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: titlePulse 1s ease;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Feature Grid (Halaman Beranda) */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px) rotate(2deg);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.feature-box .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.feature-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* CTA Section */
+.cta-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea;
+}
+
+.cta-button.secondary:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Timeline (Halaman Latar Belakang) */
+
+.background-card {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px 36px;
+  border-radius: 28px;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.25);
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+/* Kolom teks */
+.background-text {
+  flex: 1.4;
+}
+
+.background-desc {
+  margin-top: 14px;
+  color: #ffffff;
+  line-height: 1.6;
+animation: titlePulse 1s ease;
+}
+
+/* Kolom gambar */
+.background-image-slot {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-img {
+  max-width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+  object-fit: cover;
+}
+
+/* Placeholder kalau belum ada gambar */
+.image-placeholder {
+  width: 100%;
+  min-height: 220px;
+  border-radius: 22px;
+  border: 2px dashed rgba(148, 163, 184, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .background-card {
+    flex-direction: column;
+    padding: 28px 22px;
+  }
+}
+
+.powerbi-card {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 32px 28px 24px 28px;
+  background: #f9fafb;
+  border-radius: 28px;
+  box-shadow: 0 12px 42px rgba(16,80,100,.10);
+  text-align: center;
+}
+
+.powerbi-embed iframe {
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,64,175,.10);
+  margin-top: 18px;
+}
+
+.title-data {
+ font-size: 4.5rem;
+    color: #5a4aff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: titlePulse 1s ease;
+}
+
+
+.feature-explain-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  justify-content: center;
+  gap: 32px;
+}
+.feature-explain-box {
+   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(14,184,166,0.14);
+  padding: 20px 14px 18px 14px;
+  text-align: center;
+  flex: 1 1 240px;
+  transition: transform .25s;
+ 
+}
+.feature-explain-box .icon {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+.feature-explain-box h3 {
+  color: #ffffff;
+  margin-bottom: 7px;
+  font-size: 1.07rem;
+  font-weight: 600;
+}
+.feature-explain-box p {
+  color: #ffffff;
+  font-size: 0.97rem;
+}
+.feature-explain-box:hover {
+  transform: translateY(-6px) scale(1.035);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .feature-explain-list { flex-direction: column; gap: 14px; }
+  .feature-explain-box { max-width: none; }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .navbar-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .title-beranda {
+        font-size: 2rem;
+    }
+     .title-latar {
+        font-size: 2rem;
+    }
+    
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: row;
+        padding-left: 60px;
+    }
+    
+    .timeline-marker {
+        position: absolute;
+        left: 0;
+        margin: 0;
+    }
+    
+   
+}
