@@ -36,18 +36,4 @@ navLinks.forEach(link => {
   });
 });
 
-// ====== TOMBOL "MULAI SEKARANG" KE LATAR BELAKANG ======
-document.addEventListener('DOMContentLoaded', function () {
-  const btnMulai = document.getElementById('btnMulai');
-  if (!btnMulai) return;
 
-  btnMulai.addEventListener('click', function () {
-    // aktifkan halaman latar belakang
-    pages.forEach(page => page.classList.remove('active'));
-    const targetPage = document.getElementById('latar-belakang');
-    if (targetPage) {
-      targetPage.classList.add('active');
-      targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});

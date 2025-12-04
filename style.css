@@ -303,41 +303,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* CTA Section */
-.cta-section {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 3rem;
-}
 
-.cta-button {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-}
-
-.cta-button.secondary {
-    background: transparent;
-    border: 2px solid #667eea;
-    color: #667eea;
-}
-
-.cta-button.secondary:hover {
-    background: #667eea;
-    color: white;
-}
 
 /* Timeline (Halaman Latar Belakang) */
 
