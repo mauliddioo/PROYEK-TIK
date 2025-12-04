@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
       document.getElementById('btn-back').onclick = function () {
-           window.location.href = 'Shrimp Pond Analysis.html';
+           window.location.href = 'index.html';
     };
 });
